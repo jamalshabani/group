@@ -21,13 +21,13 @@ rho = interpolate(rho, V)
 
 
 # Define the constant parameters used in the problem
-c = 1.0e-2
+alpha = 1.0e-2 # Perimeter weight
 lagrange = 5.0 # Lagrange multiplier for Volume constraint
-delta = 1.0e-3
+delta = 1.0e-3 
 epsilon = 5.0e-3
 
-c_d_e = c / epsilon
-c_m_e = c * epsilon
+c_d_e = alpha / epsilon
+c_m_e = alpha * epsilon
 
 f = Constant((0, -1))
 
@@ -55,7 +55,7 @@ def sigma(u, Id):
 
 # Define test function and beam displacement
 v = TestFunction(VV)
-u = Function(VV)
+u = Function(VV, name = "Displacement")
 
 # The left side of the beam is clamped
 bcs = DirichletBC(VV, Constant((0, 0)), 7)
@@ -85,6 +85,7 @@ def FormObjectiveGradient(tao, x, G):
 
 	i = tao.getIterationNumber()
 	if (i%5) == 0:
+		# Save output files after each 5 iterations
 		beam.write(rho, time = i)
 
 	with rho.dat.vec as rho_vec:
