@@ -103,6 +103,7 @@ def FormObjectiveGradient(tao, x, G):
 
 	volume = assemble(rho * dx) * 3
 	print("The volume fraction is {}".format(volume))
+	print(" ")
 
 	# Solve forward PDE
 	solve(R_fwd == 0, u, bcs = bcs)
