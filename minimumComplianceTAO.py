@@ -12,8 +12,6 @@ VV = VectorFunctionSpace(mesh, 'CG', 1)
 
 # Create initial design
 ###### Begin Initial Design #####
-mesh_coordinates = mesh.coordinates.dat.data[:]
-
 rho = Function(V)
 rho = Constant(0.5)
 x, y = SpatialCoordinate(mesh)
