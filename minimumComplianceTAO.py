@@ -1,3 +1,9 @@
+# HOW TO RUN THIS CODE:
+# python3 minimumComplianceTAO.py -tao_monitor -tax_max_it 100
+# Option: -tao_monotor prints the Function value at each iteratios
+# Option: -tao_max_it 100 specify maximum number of iterations. Here we set to 100
+# Default convegence tolerance is 1.0e-8 which can be changed by adding option -tao_gatol <tolerance>
+
 from firedrake import *
 from petsc4py import PETSc
 
