@@ -13,6 +13,7 @@ VV = VectorFunctionSpace(mesh, 'CG', 1)
 # Create initial design
 ###### Begin Initial Design #####
 rho = Function(V)
+rho_i = Function(V, name = "Material density")
 rho = Constant(0.5)
 x, y = SpatialCoordinate(mesh)
 rho = interpolate(rho, V)
@@ -86,7 +87,8 @@ def FormObjectiveGradient(tao, x, G):
 	i = tao.getIterationNumber()
 	if (i%5) == 0:
 		# Save output files after each 5 iterations
-		beam.write(rho, time = i)
+		rho_i.interpolate(rho)
+		beam.write(rho_i, u, time = i)
 
 	with rho.dat.vec as rho_vec:
 		rho_vec.set(0.0)
@@ -132,10 +134,3 @@ with rho.dat.vec as rho_vec:
 # Solve the optimization problem
 tao.solve(x)
 tao.destroy()
-
-# Recover the final solution
-with rho.dat.vec as rho_vec:
-	rho_vec = x.copy()
-
-# Save the final solution
-File("output1/final-rho.pvd").write(rho)
