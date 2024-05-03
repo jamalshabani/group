@@ -119,8 +119,7 @@ with ub.dat.vec as ub_vec:
 
 # Setting TAO solver
 tao = PETSc.TAO().create(PETSc.COMM_SELF)
-#tao.setType('bncg')
-tao.setType('blmvm')
+tao.setType('bncg')
 tao.setObjectiveGradient(FormObjectiveGradient, None)
 tao.setVariableBounds(rho_lb, rho_ub)
 tao.setFromOptions()
