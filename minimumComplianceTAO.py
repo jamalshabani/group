@@ -27,9 +27,10 @@ lagrange = 5.0 # Lagrange multiplier for Volume constraint
 delta = 1.0e-3 
 epsilon = 5.0e-3
 
-c_d_e = alpha / epsilon
-c_m_e = alpha * epsilon
+alpha_d_e = alpha / epsilon
+alpha_m_e = alpha * epsilon
 
+# Downward traction force on the right corner
 f = Constant((0, -1))
 
 # Young's modulus of the beam and poisson ratio
@@ -63,8 +64,8 @@ bcs = DirichletBC(VV, Constant((0, 0)), 7)
 
 # Define the objective function
 func1 = inner(f, u) * ds(8)
-func2 = c_d_e * W(rho) * dx
-func3 = c_m_e * inner(grad(rho), grad(rho)) * dx
+func2 = alpha_d_e * W(rho) * dx
+func3 = alpha_m_e * inner(grad(rho), grad(rho)) * dx
 func4 = lagrange * rho * dx  # Volume constraint
 
 J = func1 + func2 + func3 + func4
