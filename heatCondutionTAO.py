@@ -4,6 +4,24 @@
 # Option: -tao_max_it 100 specify maximum number of iterations. Here we set to 100
 # Default convegence tolerance is 1.0e-8 which can be changed by adding option -tao_gatol <tolerance>
 
+"""The aim of the current optimization is to find the best optimal shape that minimizes
+the heat when the amount of high-conductivity material is limited. In other words
+the final structure optimally dissipates the heat taken from the lower conductivity
+material"""
+
+# Mathematically, problem we are solving is:
+"""     min \int_{\Omega} fT dx + \alpha\int_{\Omega}|\nabla \rho|^2
+        subject to -\text{div}(k(\rho)\nabla T) = f in \Omega
+									   T = 0 on \Gamma_D
+						   \nabla T \cdot n = 0 on \Gamma_N """
+
+# where k(a) = delta + (1 - delta) * a^2 i.e k(0) = delta, k(1) = 1, delta = 10^{-3}
+# k(a) is the thermal conductivity of the domain \Omega
+# alpha = 10^{-8} is the penalization parameter
+# f = 10^{-2} is the volumetric source term
+# \rho is the design variable i.e \rho = 0 means "void" or "hole" and \rho = 1 means "solid" or "material"
+# \Omega is the design domain. It is a unit square in this problem
+
 from firedrake import *
 from petsc4py import PETSc
 
