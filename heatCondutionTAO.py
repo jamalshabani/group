@@ -22,6 +22,8 @@ material"""
 # \rho is the design variable i.e \rho = 0 means "void" or "hole" and \rho = 1 means "solid" or "material"
 # \Omega is the design domain. It is a unit square in this problem
 
+# This problem is self-adjoint. Lucky for us, we do not need to solve the adjoint PDE to compute sensitivity
+
 from firedrake import *
 from petsc4py import PETSc
 

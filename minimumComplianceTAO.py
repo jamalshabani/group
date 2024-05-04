@@ -4,6 +4,23 @@
 # Option: -tao_max_it 100 specify maximum number of iterations. Here we set to 100
 # Default convegence tolerance is 1.0e-8 which can be changed by adding option -tao_gatol <tolerance>
 
+"""The aim of the current optimization is to find the best optimal design that minimizes
+the compliance i.e makes the cantilever beam as stiff as possible """
+
+# Mathematically, problem we are solving is:
+"""     min \int_{\Gamma_N} fu ds + \alpha\int_{\Omega}P_{\varepsilon}(\rho) dx
+        subject to -\text{div}(h(\rho)\sigma(u)) = 0 in \Omega
+									 u  = 0 on \Gamma_D
+						 \sigma(u) \cdot n = f on \Gamma_N """
+
+# where P_{\varepsilon}(\rho) is the Modica-Mortola perimeter term
+# alpha = 10^{-2} is the penalization parameter
+# f = Constant((0, -1)) is the tracting force
+# \rho is the design variable i.e \rho = 0 means "void" or "hole" and \rho = 1 means "solid" or "material"
+# \Omega is the design domain. It is a cantilever beam with length 1 and width 1/3 clamped on its left side \Gamma_D
+
+# This problem is self-adjoint. Lucky for us, we do not need to solve the adjoint PDE to compute sensitivity
+
 from firedrake import *
 from petsc4py import PETSc
 
