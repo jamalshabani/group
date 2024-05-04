@@ -10,10 +10,10 @@ the final structure optimally dissipates the heat taken from the lower conductiv
 material"""
 
 # Mathematically, problem we are solving is:
-"""     min \int_{\Omega} fT dx + \alpha\int_{\Omega}|\nabla \rho|^2
+"""     min \int_{\Omega} fT dx + \alpha\int_{\Omega}|\nabla \rho|^2 dx
         subject to -\text{div}(k(\rho)\nabla T) = f in \Omega
-									   T = 0 on \Gamma_D
-						   \nabla T \cdot n = 0 on \Gamma_N """
+									 T = 0 on \Gamma_D
+						 \nabla T \cdot n = 0 on \Gamma_N """
 
 # where k(a) = delta + (1 - delta) * a^2 i.e k(0) = delta, k(1) = 1, delta = 10^{-3}
 # k(a) is the thermal conductivity of the domain \Omega
