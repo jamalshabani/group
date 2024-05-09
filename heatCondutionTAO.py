@@ -79,7 +79,7 @@ L_legrange = inner(f, T) * dx
 R_legrange = a_legrange - L_legrange
 L = J - R_legrange
 
-beam = File('output/square.pvd')
+beam = File('heatConduction/square.pvd')
 
 def FormObjectiveGradient(tao, x, G):
 

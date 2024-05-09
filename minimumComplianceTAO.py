@@ -105,7 +105,7 @@ L_legrange = inner(f, u) * ds(8)
 R_legrange = a_legrange - L_legrange
 L = J - R_legrange
 
-beam = File('output/beam.pvd')
+beam = File('minimumCompliance/beam.pvd')
 
 def FormObjectiveGradient(tao, x, G):
 
