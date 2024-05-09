@@ -69,7 +69,7 @@ def h(rho):
 
 # Define W(a) function i.e W(x) = x(1 - x)
 def W(rho):
-	return rho * (1 - rho)
+	return pow(rho, 2) * pow((1 - rho), 2)
 
 # Define stress and strain tensors
 def epsilon(u):
