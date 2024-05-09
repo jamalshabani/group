@@ -126,6 +126,9 @@ def FormObjectiveGradient(tao, x, G):
 	# Solve forward PDE
 	solve(R_fwd == 0, u, bcs = bcs)
 
+	obj_val = assemble(func1)
+	print("The value of objective function is {}".format(obj_val))
+
 	dJdrho = assemble(derivative(L, rho))
 	with dJdrho.dat.vec as dJdrho_vec:
 		G.set(0.0)
