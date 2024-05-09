@@ -1,8 +1,8 @@
 # HOW TO RUN THIS CODE:
-# python3 minimumComplianceTAO.py -tao_monitor -tax_max_it 1000 -ta_gatol 1.0e-7
+# python3 minimumComplianceTAO.py -tao_monitor -tax_max_it 100
 # Option: -tao_monotor prints the Function value at each iteration
-# Option: -tao_max_it 1000 specify maximum number of iterations. Here we set to 1000
-# Option: -tao_gatol 1.0e-7 set convegence tolerance is set to 1.0e-7
+# Option: -tao_max_it specify maximum number of iterations. Here we set to 100
+
 
 """The aim of the current optimization is to find the best optimal design that minimizes
 the compliance i.e makes the cantilever beam as stiff as possible """
@@ -125,9 +125,6 @@ def FormObjectiveGradient(tao, x, G):
 
 	# Solve forward PDE
 	solve(R_fwd == 0, u, bcs = bcs)
-
-	obj_val = assemble(func1)
-	print("The value of objective function is {}".format(obj_val))
 
 	dJdrho = assemble(derivative(L, rho))
 	with dJdrho.dat.vec as dJdrho_vec:
