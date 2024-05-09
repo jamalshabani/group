@@ -1,8 +1,8 @@
 # HOW TO RUN THIS CODE:
 # python3 heatCondutionTAO.py -tao_monitor -tax_max_it 100
-# Option: -tao_monotor prints the Function value at each iteratios
-# Option: -tao_max_it 100 specify maximum number of iterations. Here we set to 100
-# Default convegence tolerance is 1.0e-8 which can be changed by adding option -tao_gatol <tolerance>
+# Option: -tao_monotor prints the Function value at each iteration
+# Option: -tao_max_it 1000 specify maximum number of iterations. Here we set to 1000
+# Option: -tao_gatol 1.0e-7 set convegence tolerance is set to 1.0e-7
 
 """The aim of the current optimization is to find the best optimal shape that minimizes
 the heat when the amount of high-conductivity material is limited. In other words
