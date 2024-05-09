@@ -4,6 +4,18 @@
 # Option: -tao_max_it 1000 specify maximum number of iterations. Here we set to 1000
 # Option: -tao_gatol 1.0e-7 set convegence tolerance is set to 1.0e-7
 
+     # Convergence summary:
+     #      The initial value of objective function: 12.789439653320635
+     #      The final value of objective function: 0.20380437012066277
+     #      Final volume percentages:
+     #           Non-responsive material: 31%
+     #           Responsive material: 36%
+     #      Number of iterations: 1142
+     #      Objective function evaluations: 1142
+     #      Gradient evaluations: 1142
+     #      Time: 482 seconds
+     #      Torelance: 1.0e-7
+
 """The aim of the current optimization is to find the best optimal shape that minimizes
 the heat when the amount of high-conductivity material is limited. In other words
 the final structure optimally dissipates the heat taken from the lower conductivity
