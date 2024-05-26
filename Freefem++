@@ -1,0 +1,5 @@
+To install FreeFem go to FreeFem website: https://freefem.org
+On the Download area you can download the must current version of FreeFem
+Since the compilation might not be easy, its best advisable to download the binary and please follow the instructions on the website.
+From Source code you will be able to get examples. There is a directory that contain the examples.
+The documentation also contain installations guide but I don't know how current is the one on the textbook.
